@@ -1,6 +1,6 @@
 services:
   api:
-    image: ghcr.io/${GITHUB_REPOSITORY}:${IMAGE_TAG:-latest}
+    image: ghcr.io/${GITHUB_REPOSITORY_LC}:${IMAGE_TAG:-latest}
     container_name: fulcrum_api
     restart: unless-stopped
     ports:

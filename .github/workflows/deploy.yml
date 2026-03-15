@@ -53,11 +53,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Lowercase image name
+        id: image
+        run: echo "name=$(echo ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ steps.image.outputs.name }}
           tags: |
             type=sha,prefix=sha-
             type=raw,value=latest,enable={{is_default_branch}}
@@ -103,9 +107,13 @@ jobs:
           script: |
             cd /opt/fulcrum
 
+            # Compute lowercase repo name
+            REPO_LC=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+
             # Write environment variables to .env file
             cat > .env << EOF
             GITHUB_REPOSITORY=${{ github.repository }}
+            GITHUB_REPOSITORY_LC=${REPO_LC}
             IMAGE_TAG=sha-${{ github.sha }}
             DB_CONNECTION_STRING=${{ secrets.DB_CONNECTION_STRING }}
             REDIS_CONNECTION_STRING=${{ secrets.REDIS_CONNECTION_STRING }}

@@ -8,9 +8,11 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbCon
     public DbSet<Invitation> Invitations => Set<Invitation>();
     public DbSet<PasswordResetToken> PasswordResetTokens => Set<PasswordResetToken>();
 
+    public async Task MigrateAsync(CancellationToken ct = default) =>
+        await Database.MigrateAsync(ct);
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Scope all Identity tables to the "identity" schema
         modelBuilder.HasDefaultSchema("identity");
 
         modelBuilder.ApplyConfiguration(new UserConfiguration());

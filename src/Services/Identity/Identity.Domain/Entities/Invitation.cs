@@ -29,7 +29,7 @@ public sealed class Invitation : BaseEntity
         if (IsUsed)
             throw new InvitationAlreadyUsedException(Id);
 
-        if (DateTime.UtcNow > ExpiresAt)
+        if (DateTime.UtcNow >= ExpiresAt)
             throw new InvitationExpiredException(Id);
 
         IsUsed = true;
@@ -37,7 +37,7 @@ public sealed class Invitation : BaseEntity
         SetUpdatedAt();
     }
 
-    public bool IsExpired() => DateTime.UtcNow > ExpiresAt;
+    public bool IsExpired() => DateTime.UtcNow >= ExpiresAt;
 
     public void Invalidate()
     {

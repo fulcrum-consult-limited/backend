@@ -1,5 +1,6 @@
 using System.Text;
 using Identity.API.Middleware;
+using Identity.Application.Common.Interfaces;
 using Identity.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -64,8 +65,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 // Authentication must come before the revocation middleware
 app.UseAuthentication();
 
@@ -74,5 +73,12 @@ app.UseMiddleware<TokenRevocationMiddleware>();
 
 app.UseAuthorization();
 app.MapControllers();
+
+// Auto-migrate on startup via IMigrationService — API never references EF Core directly
+using (var scope = app.Services.CreateScope())
+{
+    var migrationService = scope.ServiceProvider.GetRequiredService<IMigrationService>();
+    await migrationService.MigrateAsync();
+}
 
 app.Run();

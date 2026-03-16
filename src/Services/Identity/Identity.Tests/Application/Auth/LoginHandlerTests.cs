@@ -1,5 +1,3 @@
-using Identity.Application.Auth.Commands.Login;
-
 namespace Identity.Tests.Application.Auth;
 
 [TestFixture]

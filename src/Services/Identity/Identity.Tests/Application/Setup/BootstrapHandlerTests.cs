@@ -1,5 +1,3 @@
-using Identity.Application.Setup.Commands.Bootstrap;
-
 namespace Identity.Tests.Application.Setup;
 
 [TestFixture]
@@ -36,8 +34,8 @@ public sealed class BootstrapHandlerTests
 
         var command = CommandFactory.Bootstrap(
             email: "admin@example.com",
-            forename: "Jason",
-            surname: "Kitamirike");
+            forename: "Joe",
+            surname: "Bloggs");
 
         var result = await _handler.Handle(command);
 
@@ -45,8 +43,8 @@ public sealed class BootstrapHandlerTests
         {
             Assert.That(result.IsSuccess, Is.True);
             Assert.That(result.Value!.Email, Is.EqualTo("admin@example.com"));
-            Assert.That(result.Value.Forename, Is.EqualTo("Jason"));
-            Assert.That(result.Value.Surname, Is.EqualTo("Kitamirike"));
+            Assert.That(result.Value.Forename, Is.EqualTo("Joe"));
+            Assert.That(result.Value.Surname, Is.EqualTo("Bloggs"));
             Assert.That(result.Value.Role, Is.EqualTo("Admin"));
             Assert.That(result.Value.IsActive, Is.True);
         });

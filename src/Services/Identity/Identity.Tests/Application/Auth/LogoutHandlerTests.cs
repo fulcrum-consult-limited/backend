@@ -1,5 +1,3 @@
-using Identity.Application.Auth.Commands.Logout;
-
 namespace Identity.Tests.Application.Auth;
 
 [TestFixture]

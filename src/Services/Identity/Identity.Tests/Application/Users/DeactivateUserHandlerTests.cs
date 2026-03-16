@@ -1,5 +1,3 @@
-using Identity.Application.Users.Commands.DeactivateUser;
-
 namespace Identity.Tests.Application.Users;
 
 [TestFixture]

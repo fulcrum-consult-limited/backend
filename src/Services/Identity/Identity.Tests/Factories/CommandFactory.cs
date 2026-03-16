@@ -1,22 +1,8 @@
-using Bogus;
-using Identity.Application.Auth.Commands.Login;
-using Identity.Application.Auth.Commands.Logout;
-using Identity.Application.Invitations.Commands.AcceptInvitation;
-using Identity.Application.Invitations.Commands.CreateInvitation;
-using Identity.Application.Invitations.Commands.ResendInvitation;
-using Identity.Application.PasswordReset.Commands.ChangePassword;
-using Identity.Application.PasswordReset.Commands.RequestPasswordReset;
-using Identity.Application.PasswordReset.Commands.ResetPassword;
-using Identity.Application.Setup.Commands.Bootstrap;
-using Identity.Application.Users.Commands.DeactivateUser;
-using Identity.Application.Users.Commands.ReactivateUser;
-using Identity.Application.Users.Commands.UpdateUserRole;
-
 namespace Identity.Tests.Factories;
 
 public static class CommandFactory
 {
-    private static readonly Faker Faker = new("en") { Random = new Randomizer(1234) };
+    private static readonly Faker Faker = new() { Random = new Randomizer(1234) };
 
     public const string ValidPassword = "Test@1234";
 

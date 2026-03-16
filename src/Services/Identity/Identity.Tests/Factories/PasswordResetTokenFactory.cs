@@ -2,7 +2,7 @@ namespace Identity.Tests.Factories;
 
 public static class PasswordResetTokenFactory
 {
-    private static readonly Faker Faker = new("en") { Random = new Randomizer(1234) };
+    private static readonly Faker Faker = new() { Random = new Randomizer(1234) };
 
     public static PasswordResetToken CreateValid(
         Guid? userId = null,

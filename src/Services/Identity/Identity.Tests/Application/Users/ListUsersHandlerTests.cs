@@ -1,5 +1,3 @@
-using Identity.Application.Users.Queries.ListUsers;
-
 namespace Identity.Tests.Application.Users;
 
 [TestFixture]

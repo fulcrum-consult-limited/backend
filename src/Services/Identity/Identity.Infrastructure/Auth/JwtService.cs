@@ -1,10 +1,3 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using Identity.Application.Common.Interfaces;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-
 namespace Identity.Infrastructure.Auth;
 
 public sealed class JwtService(IOptions<JwtSettings> options) : IJwtService

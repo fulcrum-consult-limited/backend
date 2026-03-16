@@ -1,12 +1,3 @@
-using Identity.Application.Common.Interfaces;
-using Identity.Infrastructure.Auth;
-using Identity.Infrastructure.Persistence;
-using Identity.Infrastructure.Persistence.Repositories;
-using Identity.Infrastructure.Redis;
-using Microsoft.Extensions.Options;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
-using StackExchange.Redis;
-
 namespace Identity.Infrastructure;
 
 public static class DependencyInjection

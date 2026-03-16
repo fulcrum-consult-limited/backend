@@ -2,7 +2,7 @@ namespace Identity.Domain.Entities;
 
 public sealed class User : BaseEntity
 {
-    public Email Email { get; private set; } = null!;
+    public Email Email { get; private init; } = null!;
     public string Forename { get; private set; } = string.Empty;
     public string Surname { get; private set; } = string.Empty;
     public string PasswordHash { get; private set; } = string.Empty;

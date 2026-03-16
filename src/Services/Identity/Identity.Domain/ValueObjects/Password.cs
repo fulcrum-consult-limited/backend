@@ -1,6 +1,3 @@
-using Identity.Domain.Exceptions;
-using Shared.Domain;
-
 namespace Identity.Domain.ValueObjects;
 
 public sealed class Password : ValueObject
@@ -24,7 +21,7 @@ public sealed class Password : ValueObject
         if (!password.Any(char.IsDigit))
             violations.Add("at least one number");
 
-        if (!password.Any(ch => !char.IsLetterOrDigit(ch)))
+        if (password.All(ch => char.IsLetterOrDigit(ch)))
             violations.Add("at least one special character");
 
         if (violations.Count > 0)

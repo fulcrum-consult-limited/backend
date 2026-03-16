@@ -1,5 +1,3 @@
-using Identity.Application.Users.Queries.GetUserByEmail;
-
 namespace Identity.Tests.Application.Users;
 
 [TestFixture]

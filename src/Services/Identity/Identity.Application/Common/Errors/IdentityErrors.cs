@@ -1,5 +1,3 @@
-using Shared.Domain;
-
 namespace Identity.Application.Common.Errors;
 
 public static class IdentityErrors

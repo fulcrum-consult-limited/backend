@@ -1,5 +1,3 @@
-using Identity.API.Extensions;
-
 namespace Identity.API.Controllers;
 
 [ApiController]
@@ -9,7 +7,6 @@ public sealed class PasswordResetController(
     ResetPasswordHandler resetHandler,
     ChangePasswordHandler changeHandler) : ControllerBase
 {
-    // Public — user submits their email
     [HttpPost("forgot")]
     public async Task<IActionResult> ForgotPassword(
         [FromBody] ForgotPasswordRequest request,
@@ -18,11 +15,9 @@ public sealed class PasswordResetController(
         await requestHandler.Handle(
             new RequestPasswordResetCommand(request.Email), ct);
 
-        // Always return 200 regardless of outcome — prevents user enumeration
         return Ok(new { message = "If that email exists, a reset link has been sent." });
     }
 
-    // Public — user submits token + new password from the reset link
     [HttpPost("reset")]
     public async Task<IActionResult> ResetPassword(
         [FromBody] ResetPasswordRequest request,
@@ -44,7 +39,6 @@ public sealed class PasswordResetController(
             });
     }
 
-    // Authenticated — user changes their own password
     [Authorize]
     [HttpPost("change")]
     public async Task<IActionResult> ChangePassword(

@@ -1,5 +1,3 @@
-using Identity.Application.Users.Queries.GetUserById;
-
 namespace Identity.Tests.Application.Users;
 
 [TestFixture]

@@ -1,5 +1,3 @@
-using Identity.Application.Common.Interfaces;
-
 namespace Identity.Infrastructure.Auth;
 
 public sealed class PasswordHasher : IPasswordHasher

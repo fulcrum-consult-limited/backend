@@ -2,11 +2,9 @@ using System.Text.RegularExpressions;
 
 namespace Identity.Domain.ValueObjects;
 
-public sealed class Email : ValueObject
+public sealed partial class Email : ValueObject
 {
-    private static readonly Regex EmailRegex = new(
-        @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
-        RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly Regex EmailRegex = MyRegex();
 
     public string Value { get; }
 
@@ -32,4 +30,7 @@ public sealed class Email : ValueObject
     public override string ToString() => Value;
 
     public static implicit operator string(Email email) => email.Value;
+
+    [GeneratedRegex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.IgnoreCase | RegexOptions.Compiled, "en-UG")]
+    private static partial Regex MyRegex();
 }

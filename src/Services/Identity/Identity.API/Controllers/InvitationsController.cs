@@ -27,7 +27,6 @@ public sealed class InvitationsController(
             {
                 "identity.user.already_exists"       => Conflict(error.ToResponse()),
                 "identity.invitation.pending_exists" => Conflict(error.ToResponse()),
-                "identity.credentials.invalid_email" => BadRequest(error.ToResponse()),
                 _                                    => BadRequest(error.ToResponse())
             });
     }

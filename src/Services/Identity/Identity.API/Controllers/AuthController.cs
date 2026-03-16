@@ -1,7 +1,3 @@
-using Identity.API.Extensions;
-using Identity.Application.Auth.Commands.Login;
-using Identity.Application.Auth.Commands.Logout;
-
 namespace Identity.API.Controllers;
 
 [ApiController]

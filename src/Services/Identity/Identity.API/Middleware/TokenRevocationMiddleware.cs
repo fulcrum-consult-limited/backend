@@ -1,6 +1,3 @@
-using Identity.API.Extensions;
-using Identity.Domain.Interfaces;
-
 namespace Identity.API.Middleware;
 
 public sealed class TokenRevocationMiddleware(

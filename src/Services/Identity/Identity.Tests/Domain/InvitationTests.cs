@@ -1,5 +1,3 @@
-using Identity.Domain.Events;
-
 namespace Identity.Tests.Domain;
 
 [TestFixture]

@@ -1,5 +1,3 @@
-using Identity.Application.Users.Commands.UpdateUserRole;
-
 namespace Identity.Tests.Application.Users;
 
 [TestFixture]

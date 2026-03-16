@@ -52,7 +52,6 @@ public sealed class UsersController(
             onFailure: error => error.Code switch
             {
                 "identity.user.not_found"            => NotFound(error.ToResponse()),
-                "identity.credentials.invalid_email" => BadRequest(error.ToResponse()),
                 _                                    => BadRequest(error.ToResponse())
             });
     }

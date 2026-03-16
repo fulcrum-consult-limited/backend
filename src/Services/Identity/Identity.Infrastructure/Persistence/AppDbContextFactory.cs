@@ -1,13 +1,9 @@
-using Microsoft.EntityFrameworkCore.Design;
-
 namespace Identity.Infrastructure.Persistence;
 
 public sealed class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
     public AppDbContext CreateDbContext(string[] args)
     {
-        // Design-time only — never runs in production.
-        // Update if your local dev DB credentials differ.
         const string connectionString =
             "Host=localhost;Database=fulcrum;Username=postgres;Password=postgres";
 

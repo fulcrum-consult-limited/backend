@@ -1,6 +1,3 @@
-using Identity.Domain.Entities;
-using Identity.Domain.ValueObjects;
-
 namespace Identity.Domain.Interfaces;
 
 public interface IUserRepository

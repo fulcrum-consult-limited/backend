@@ -1,6 +1,3 @@
-using Identity.Domain.Interfaces;
-using StackExchange.Redis;
-
 namespace Identity.Infrastructure.Redis;
 
 public sealed class RedisTokenRevocationStore(IConnectionMultiplexer redis) : ITokenRevocationStore

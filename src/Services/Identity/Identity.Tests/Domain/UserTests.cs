@@ -3,8 +3,6 @@ namespace Identity.Tests.Domain;
 [TestFixture]
 public sealed class UserTests
 {
-    // --- CreatePending ---
-
     [Test]
     public void CreatePending_WithValidEmail_CreatesInactiveUser()
     {
@@ -63,9 +61,7 @@ public sealed class UserTests
         Assert.Throws<ArgumentException>(() =>
             UserFactory.CreateAdmin(surname: ""));
     }
-
-    // --- CompleteRegistration ---
-
+    
     [Test]
     public void CompleteRegistration_WithValidData_ActivatesUser()
     {
@@ -112,9 +108,7 @@ public sealed class UserTests
             Assert.That(user.Surname, Is.EqualTo("Bloggs"));
         });
     }
-
-    // --- Deactivate / Reactivate ---
-
+    
     [Test]
     public void Deactivate_ActiveUser_SetsIsActiveToFalse()
     {
@@ -134,9 +128,7 @@ public sealed class UserTests
 
         Assert.That(user.IsActive, Is.True);
     }
-
-    // --- UpdateRole ---
-
+    
     [Test]
     public void UpdateRole_ChangesRoleCorrectly()
     {
@@ -146,9 +138,7 @@ public sealed class UserTests
 
         Assert.That(user.Role, Is.EqualTo(UserRole.User));
     }
-
-    // --- ChangePassword ---
-
+    
     [Test]
     public void ChangePassword_UpdatesPasswordHash()
     {

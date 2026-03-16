@@ -1,5 +1,3 @@
-using Identity.Application.Invitations.Commands.AcceptInvitation;
-
 namespace Identity.Tests.Application.Invitations;
 
 [TestFixture]

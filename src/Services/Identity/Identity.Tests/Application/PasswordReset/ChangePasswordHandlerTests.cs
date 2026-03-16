@@ -1,5 +1,3 @@
-using Identity.Application.PasswordReset.Commands.ChangePassword;
-
 namespace Identity.Tests.Application.PasswordReset;
 
 [TestFixture]

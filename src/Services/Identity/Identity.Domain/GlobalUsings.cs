@@ -9,5 +9,4 @@ global using Shared.Domain;
 global using Identity.Domain.Entities;
 global using Identity.Domain.Events;
 global using Identity.Domain.Exceptions;
-global using Identity.Domain.Interfaces;
 global using Identity.Domain.ValueObjects;

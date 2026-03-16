@@ -1,5 +1,3 @@
-using Identity.Infrastructure.Persistence.Configurations;
-
 namespace Identity.Infrastructure.Persistence;
 
 public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
